@@ -1,12 +1,14 @@
+library(grapher)
 library(tidygraph)
 
-ig <- grapher::cran_deps_graph(
-  Inf, deps = c("Imports", "Depends"),
+# get data
+ig <- cran_deps_graph(
+  Inf, deps = c("Imports"),
   format = "igraph",
-  base_r = FALSE
+  include_base_r = FALSE
 )
 
-ig <- igraph::mst(ig)
+# ig <- igraph::mst(ig)
 
 graph <- as_tbl_graph(ig) %>% 
   activate(nodes) %>% 
@@ -14,9 +16,13 @@ graph <- as_tbl_graph(ig) %>%
     cluster = group_walktrap(),
     cluster = as.character(cluster),
     in_degree = centrality_degree(mode = "in")
-  ) 
+  ) %>% 
+  filter(in_degree >= 1)
 
-library(grapher)
+# save
+save(graph, file = "./data/graph.RData")
+
+# test
 
 g <- graph %>% 
   graph() %>% 

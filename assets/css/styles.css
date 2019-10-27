@@ -5,3 +5,13 @@ nav{
 #home{
   text-align: center;
 }
+
+.container-fluid{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.net>.form-group{
+  position: absolute;
+  padding: 20px;
+}
