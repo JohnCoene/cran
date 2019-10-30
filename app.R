@@ -4,6 +4,8 @@ library(grapher)
 
 shiny::addResourcePath("assets", "./assets")
 
+g <- get(load("./data/graph.RData"))
+
 ui <- navbarPage(
   "grapher",
   header = tags$head(
@@ -42,12 +44,7 @@ server <- function(input, output, session){
   })
 
   output$g <- render_graph({
-    graph %>% 
-      graph() %>% 
-      scale_link_color(cluster) %>% 
-      graph_stable_layout(ms = 25000) %>% 
-      define_node_size(in_degree) %>% 
-      scale_node_size(in_degree, range = c(20, 120))
+    hide_long_links(g, 100) %>% scale_node_size(in_degree, c(10, 150)) 
   })
 
   observeEvent(input$search, {
