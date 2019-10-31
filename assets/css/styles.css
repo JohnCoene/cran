@@ -11,7 +11,12 @@ nav{
   padding-right: 0px;
 }
 
-.net>.form-group{
+.form-group{
   position: absolute;
   padding: 20px;
+  color: white;
+}
+
+#search{
+  background-color: black;
 }

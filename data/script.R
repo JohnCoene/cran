@@ -22,13 +22,12 @@ graph <- as_tbl_graph(ig) %>%
 g <- graph %>% 
   graph() %>% 
   scale_link_color(cluster, palette = graph_palette_light()) %>% 
-  graph_offline_layout(steps = 1000) %>% 
+  graph_offline_layout(steps = 250) %>% 
   define_node_size(in_degree) %>% 
   scale_node_size(in_degree, c(50, 120)) 
 
-# save
-save(g, file = "./graph.RData")
-
 l <- compute_links_length(g)
 
-hide_long_links(g, 200) %>% scale_node_size(in_degree, c(10, 150)) 
+g <- hide_long_links(g, 100) %>% scale_node_size(in_degree, c(10, 120)) 
+
+save(g, file = "graph.RData")
