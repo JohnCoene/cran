@@ -45,6 +45,14 @@ ui <- fluidPage(
     h1("CRAN Dependency Graph"),
     p("Each node is an R package on CRAN, connections represent dependencies."),
     p(
+      "You can navigate the graph with the", tags$kbd("w"), tags$kbd("a"), 
+      tags$kbd("s"), tags$kbd("d"), "and the arrow keys (",
+      tags$kbd(HTML("&larr;")), tags$kbd(HTML("&uarr;")), tags$kbd(HTML("&rarr;")), 
+      tags$kbd(HTML("&darr;")), ") to rotate the camera", tags$kbd("a"), tags$kbd("e"), 
+      "will rotate it."
+    ),
+    p("Type the name of a package in the search box in the top left corner to zoom in on it."),
+    p(
       "While all packages are visualised not all dependencies are, to avoid",
       "a hairball graph edges that are over a certain length are hidden. This",
       "allows keeping sight of smaller communities."
