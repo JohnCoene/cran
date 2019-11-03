@@ -4,8 +4,6 @@ library(grapher)
 
 shiny::addResourcePath("assets", "./assets")
 
-g <- get(load("./data/graph.RData"))
-
 ui <- fluidPage(
   title = "CRAN Dependency Network",
   tags$head(
@@ -28,7 +26,9 @@ ui <- fluidPage(
 
 server <- function(input, output, session){
 
-  output$g <- render_graph(g)
+  output$g <- render_graph({
+    graph("./assets/data/graph.json")
+  })
 
   observeEvent(input$search, {
     graph_proxy("g") %>% 

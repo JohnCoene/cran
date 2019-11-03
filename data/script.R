@@ -18,16 +18,16 @@ graph <- as_tbl_graph(ig) %>%
     in_degree = centrality_degree(mode = "in")
   )
 
-# test
+
 g <- graph %>% 
   graph() %>% 
-  scale_link_color(cluster, palette = graph_palette_light()) %>% 
-  graph_offline_layout(steps = 250) %>% 
-  define_node_size(in_degree) %>% 
-  scale_node_size(in_degree, c(50, 120)) 
+  scale_link_color(cluster, palette = graph_palette()) %>% 
+  graph_offline_layout(steps = 150) %>% 
+  define_node_size(in_degree) 
 
 l <- compute_links_length(g)
 
-g <- hide_long_links(g, 100) %>% scale_node_size(in_degree, c(10, 120)) 
-
-save(g, file = "graph.RData")
+g %>% 
+  hide_long_links(100) %>% 
+  scale_node_size(in_degree, c(10, 100)) %>% 
+  save_graph_json("./assets/data/graph.json")
