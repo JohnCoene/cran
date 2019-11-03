@@ -1,5 +1,7 @@
-nav{
-  display:none;
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+body{
+  font-family: 'Raleway', sans-serif;
 }
 
 #home{
@@ -14,9 +16,40 @@ nav{
 .form-group{
   position: absolute;
   padding: 20px;
-  color: white;
+  color: #d3d3d3;
 }
 
 #search{
   background-color: black;
+}
+
+.bars{
+  background:#000;
+  padding:20px;
+  color:white;
+}
+
+#search{
+  color: #d3d3d3;
+}
+
+#code{
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  color: #d3d3d3;
+}
+
+#about{
+  position: absolute;
+  bottom: 1%;
+  right: 3%;
+  color: #d3d3d3;
+}
+
+#footer{
+  position: absolute;
+  bottom: 3%;
+  width: 90%;
+  text-align: center;
 }
