@@ -50,7 +50,7 @@ ui <- fluidPage(
       "allows keeping sight of smaller communities."
     ),
     p("You view the source used to build the visualisation", actionLink("code2", "here")),
-    p("with 💕 by John Coene with", id = "footer"),
+    p("with 💕 by John Coene", id = "footer"),
     style = "width:30%;"
   ),
   hide_waiter_on_drawn("g")
