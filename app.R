@@ -64,7 +64,8 @@ ui <- fluidPage(
     p(tags$a("with 💕 by John Coene", id = "footer"), href = "https://john-coene.com"),
     style = "width:30%;"
   ),
-  hide_waiter_on_drawn("g")
+  hide_waiter_on_drawn("g"),
+  tags$script(src = "./assets/js/mobile.js"),
 )
 
 server <- function(input, output, session){
@@ -90,6 +91,18 @@ server <- function(input, output, session){
 
   observeEvent(input$about, {
     pushbar_open(id = "about_bar")
+  })
+
+  observeEvent(input$screen_width, {
+    if(input$screen_width < 700)
+      showModal(
+        modalDialog(
+          title = NULL,
+          "Apologies, this website is only available on desktop 🖥️",
+          footer = NULL,
+          fade = FALSE
+        )
+      )
   })
 
 }

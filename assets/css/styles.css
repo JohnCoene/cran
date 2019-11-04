@@ -54,3 +54,25 @@ body{
   width: 90%;
   text-align: center;
 }
+
+.modal-backdrop{
+  background-color: black;
+  opacity: 1!important;
+}
+
+.modal-content{
+  color:white;
+  font-size: 25px;
+  text-align: center;
+  background-color: black;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
