@@ -33,17 +33,18 @@ body{
   color: #d3d3d3;
 }
 
-#code{
+#buttons{
   position: absolute;
   bottom: 1%;
-  right: 1%;
+  right: 2%;
+}
+
+#code{
+  margin-right: 10px;
   color: #d3d3d3;
 }
 
 #about{
-  position: absolute;
-  bottom: 1%;
-  right: 3%;
   color: #d3d3d3;
 }
 

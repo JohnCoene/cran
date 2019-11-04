@@ -27,8 +27,11 @@ ui <- fluidPage(
   div(
     textInput("search", "Search a package"),
     graphOutput("g", height = "100vh"),
-    actionLink("code", "", icon = icon("code fa-lg")),
-    actionLink("about", "", icon = icon("question fa-lg"))
+    div(
+      id = "buttons",
+      actionLink("code", "", icon = icon("code fa-lg")),
+      actionLink("about", "", icon = icon("question fa-lg"))
+    )
   ),
   pushbar(
     id = "code_bar",
@@ -58,7 +61,7 @@ ui <- fluidPage(
       "allows keeping sight of smaller communities."
     ),
     p("You view the source used to build the visualisation", actionLink("code2", "here")),
-    p("with 💕 by John Coene", id = "footer"),
+    p(tags$a("with 💕 by John Coene", id = "footer"), href = "https://john-coene.com"),
     style = "width:30%;"
   ),
   hide_waiter_on_drawn("g")
