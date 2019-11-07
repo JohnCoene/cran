@@ -38,6 +38,10 @@ ui <- fluidPage(
     from = "left",
     class = "bars",
     h1("Source code"),
+    p(
+      "The visualisation is powered by the",
+      tags$a("grapher package", href = "https://grapher.network/")
+    ),
     style = "width:30%;",
     tags$pre(tags$code(class = "language-r", code))
   ),
@@ -46,7 +50,11 @@ ui <- fluidPage(
     class = "bars",
     from = "right",
     h1("CRAN Dependency Graph"),
-    p("Each node is an R package on CRAN, connections represent dependencies."),
+    p(
+      "Each node is an R package on CRAN, connections represent dependencies",
+      tags$code("Depends", class = "language-r"), tags$code("Imports", class = "language-r"), 
+      "and", tags$code("LinkingTo.", class = "language-r")
+    ),
     p(
       "You can navigate the graph with the", tags$kbd("w"), tags$kbd("a"), 
       tags$kbd("s"), tags$kbd("d"), "and the arrow keys (",
@@ -61,7 +69,7 @@ ui <- fluidPage(
       "allows keeping sight of smaller communities."
     ),
     p("You view the source used to build the visualisation", actionLink("code2", "here")),
-    p(tags$a("with 💕 by John Coene", id = "footer"), href = "https://john-coene.com"),
+    p(tags$a("with 💕 by John Coene", id = "footer", href = "https://john-coene.com")),
     style = "width:30%;"
   ),
   hide_waiter_on_drawn("g"),
@@ -94,7 +102,7 @@ server <- function(input, output, session){
   })
 
   observeEvent(input$screen_width, {
-    if(input$screen_width < 700)
+    if(input$screen_width < 760)
       showModal(
         modalDialog(
           title = NULL,

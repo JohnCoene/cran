@@ -39,6 +39,12 @@ body{
   right: 2%;
 }
 
+#info{
+  position: absolute;
+  bottom: 1%;
+  left: 2%;
+}
+
 #code{
   margin-right: 10px;
   color: #d3d3d3;
@@ -57,7 +63,7 @@ body{
 
 .modal-backdrop{
   background-color: black;
-  opacity: 1!important;
+  opacity: .8!important;
 }
 
 .modal-content{
