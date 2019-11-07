@@ -35,14 +35,14 @@ body{
 
 #buttons{
   position: absolute;
-  bottom: 1%;
-  right: 2%;
+  bottom: 3%;
+  right: 3%;
 }
 
 #info{
   position: absolute;
-  bottom: 1%;
-  left: 2%;
+  bottom: 3%;
+  left: 3%;
 }
 
 #code{

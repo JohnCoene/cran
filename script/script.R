@@ -22,5 +22,4 @@ graph(graph) %>%
   hide_long_links(100) %>% 
   scale_node_size(in_degree, c(6, 50)) %>% 
   scale_link_color_coords(red = c(.1, 1)) %>% 
-  capture_node_click() %>% 
   save_graph_json("./assets/data/graph.json")
