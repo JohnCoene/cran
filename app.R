@@ -27,6 +27,7 @@ ui <- fluidPage(
   div(
     textInput("search", "Search a package"),
     graphOutput("g", height = "100vh"),
+    uiOutput("clicked"),
     div(
       id = "buttons",
       actionLink("code", "", icon = icon("code fa-lg")),
@@ -62,6 +63,7 @@ ui <- fluidPage(
       tags$kbd(HTML("&darr;")), ") to rotate the camera", tags$kbd("a"), tags$kbd("e"), 
       "will rotate it."
     ),
+    p("Click on a node to reveal more information about it."),
     p("Type the name of a package in the search box in the top left corner to zoom in on it."),
     p(
       "While all packages are visualised not all dependencies are, to avoid",
@@ -99,6 +101,21 @@ server <- function(input, output, session){
 
   observeEvent(input$about, {
     pushbar_open(id = "about_bar")
+  })
+
+  output$clicked <- renderUI({
+    req(input$g_node_click)
+    sel <- input$g_node_click
+
+    deps <- sel$links %>% 
+      dplyr::filter(fromId != sel$id) %>% 
+      nrow()
+
+    tagList(
+      strong(sel$id, style = "color:white;"),
+      br(),
+      span("Reverse Dependencies:", deps,  style = "color:white;")
+    )
   })
 
   observeEvent(input$screen_width, {

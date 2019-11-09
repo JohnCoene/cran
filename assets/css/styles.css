@@ -39,6 +39,12 @@ body{
   right: 3%;
 }
 
+#clicked{
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+}
+
 #info{
   position: absolute;
   bottom: 3%;
