@@ -19,4 +19,4 @@ shinyApp(ui, server)
 
 It is intended as demo for [grapher](https://grapher.network).
 
-[Pull Requests](https://github.com/JohnCoene/cran/pulls), [raising issues](https://github.com/JohnCoene/cran/issues), and other feedback is welcome.
+[Pull Requests](https://github.com/JohnCoene/cran/pulls), [raising issues](https://github.com/JohnCoene/cran/issues), and other feedback is welcome. Please see the [blog post](https://grapher.network/blog/2019/11/02/cran) describing how it is built if you want to know more.
