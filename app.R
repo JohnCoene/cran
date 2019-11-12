@@ -114,7 +114,7 @@ server <- function(input, output, session){
     tagList(
       strong(sel$id, style = "color:white;"),
       br(),
-      span("Reverse Dependencies:", deps,  style = "color:white;")
+      span("Reverse Dependencies:", prettyNum(deps, big.mark = ","),  style = "color:white;")
     )
   })
 
