@@ -8,6 +8,8 @@ shiny::addResourcePath("assets", "./assets")
 code <- readLines("./script/script.R") %>% 
   paste0(collapse = "\n")
 
+load("pkgs.RData")
+
 ui <- fluidPage(
   title = "CRAN Dependency Network",
   tags$head(
@@ -25,7 +27,7 @@ ui <- fluidPage(
     )
   ),
   div(
-    textInput("search", "Search a package"),
+    dqshiny::autocomplete_input("search", "Package", pkgs, placeholder = "e.g.: dplyr, data.table"),
     graphOutput("g", height = "100vh"),
     uiOutput("clicked"),
     div(
@@ -103,9 +105,26 @@ server <- function(input, output, session){
     pushbar_open(id = "about_bar")
   })
 
+  focus <- reactiveValues(pkg = NULL)
+
+  observeEvent(input$g_node_click, {
+    focus$pkg <- input$g_node_click
+  })
+
+  observeEvent(input$g_retrieve_node, {
+    focus$pkg <- input$g_retrieve_node
+  })
+
+  observeEvent(input$search, {
+    graph_proxy("g") %>% 
+      retrieve_node(input$search)
+  })
+
   output$clicked <- renderUI({
-    req(input$g_node_click)
-    sel <- input$g_node_click
+    sel <- focus$pkg
+
+    if(is.null(sel))
+      return(span())
 
     deps <- sel$links %>% 
       dplyr::filter(fromId != sel$id) %>% 

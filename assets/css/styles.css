@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
 body{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #home{
@@ -20,7 +20,7 @@ body{
 }
 
 #search{
-  background-color: black;
+  background-color: rgba(0,0,0,.5)
 }
 
 .bars{
@@ -41,8 +41,10 @@ body{
 
 #clicked{
   position: absolute;
-  bottom: 3%;
-  left: 3%;
+  bottom: 1%;
+  left: 1%;
+  border-left: 1px solid white;
+  padding-left: 5px;
 }
 
 #info{
