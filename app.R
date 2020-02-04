@@ -62,7 +62,7 @@ ui <- fluidPage(
       "You can navigate the graph with the", tags$kbd("w"), tags$kbd("a"), 
       tags$kbd("s"), tags$kbd("d"), "and the arrow keys (",
       tags$kbd(HTML("&larr;")), tags$kbd(HTML("&uarr;")), tags$kbd(HTML("&rarr;")), 
-      tags$kbd(HTML("&darr;")), ") to rotate the camera", tags$kbd("a"), tags$kbd("e"), 
+      tags$kbd(HTML("&darr;")), ") to rotate the camera", tags$kbd("q"), tags$kbd("e"), 
       "will rotate it."
     ),
     p("Click on a node to reveal more information about it."),
